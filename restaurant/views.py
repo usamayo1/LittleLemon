@@ -20,19 +20,22 @@ def HomePage(request):
 from .serializers import MenuSerializer, BookingSerializer, UserSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 class MenuItemsView(ListCreateAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
     
 class MenuSingleItemView(RetrieveUpdateDestroyAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
     
 class BookingviewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
     
 # User Registration api
 class UserViewSet(viewsets.ModelViewSet):
