@@ -17,7 +17,7 @@ def HomePage(request):
 
 # Create Api views here
 
-from .serializers import MenuSerializer, BookingSerializer, UserSerializer
+from .serializers import MenuSerializer, BookingSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
