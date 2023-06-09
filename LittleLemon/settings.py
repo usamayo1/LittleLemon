@@ -136,7 +136,11 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
+    'DEFAULT_THROTTLE_RATES':{
+        'anon': '5/day',
+        'user': '6/hour'
+    }
 }
 
 DJOSER={"USER_ID_FIELD":"username"}

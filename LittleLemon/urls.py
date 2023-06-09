@@ -22,14 +22,14 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 
 router = DefaultRouter()
-router.register('booking', views.BookingviewSet, basename='booking')
+router.register('', views.BookingviewSet, basename='booking')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('restaurant/', include('restaurant.urls')),
         
-    path('restaurant/', include(router.urls)),
-    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('restaurant/booking', include(router.urls)),
+    path('login/', include('rest_framework.urls', namespace='rest_framework')),
     
     path('api-token-auth/', obtain_auth_token),
     
